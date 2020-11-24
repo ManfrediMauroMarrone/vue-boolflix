@@ -2,7 +2,8 @@ var app = new Vue({
     el: '#root',
     data: {
       movies: [],
-      searched: ''
+      vote:'',
+      searched: '',
 
 
 
@@ -19,7 +20,17 @@ var app = new Vue({
         })
         .then((response)=> {
           this.movies = response.data.results
-          
+          this.movies.forEach((item, index) => {
+            // converto la base del voto da 10 a 5 usando una proporzione
+            let votoBase5 = Math.round(parseFloat(item.vote_average)*0.5)
+            // pongo il vecchio voto in base 10 uguale al nuovo voto in pase 5 specificando l'indice perché è un array di oggetti
+            this.movies[index].vote_average = votoBase5
+          });
+
+
+        })
+        .catch((error) =>{
+          console.log(error);
         });
 
       }
@@ -27,25 +38,6 @@ var app = new Vue({
     },
 
     mounted() {
-      console.log(this.movies);
-      // axios
-      // .get('https://flynn.boolean.careers/exercises/api/array/music')
-      // .then((risposta) => {
-      //   let disco = risposta.data.response
-      //   this.dischi = disco
-      //
-      //   this.dischi.forEach((disco) => {
-      //     if (!this.genres.includes(disco.genre)) {
-      //       this.genres.push(disco.genre);
-      //     }
-      //   });
-      //
-      //   this.dischi.sort(function(disco1, disco2){
-      //     return parseInt(disco1.year) - parseInt(disco2.year)
-      //   })
-      //
-      // });
-
 
     },
 

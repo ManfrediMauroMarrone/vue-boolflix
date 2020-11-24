@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" charset="utf-8"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://kit.fontawesome.com/43febffcb7.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div id="root">
@@ -17,9 +18,14 @@
           <li>{{movie.title}}</li>
           <li>{{movie.original_title}}</li>
           <li>{{movie.original_language}}</li>
-          <li>{{movie.vote_average}}</li>
+          <div id="stars">
+            <div v-for="star in 5">
+              <i class="fas fa-star" v-if="star <= movie.vote_average"></i>
+              <i class="far fa-star" v-else></i>
 
+            </div>
 
+          </div>
         </ul>
       </div>
     </div>
