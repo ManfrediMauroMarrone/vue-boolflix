@@ -30,4 +30,10 @@ button{
   font-size: 20px;
 }
 
-.movie-list
+.movie-list{
+  list-style-type: none;
+}
+
+.movie-list li{
+  border: 1px solid black;
+}
