@@ -14,7 +14,12 @@
         <input class="searchbar" type="text" name="" value="" v-model="searched">
         <button @click="search()" type="button" name="button">Search</button>
         <ul class="movie-list" v-for="movie in movies">
+          <li>{{movie.title}}</li>
           <li>{{movie.original_title}}</li>
+          <li>{{movie.original_language}}</li>
+          <li>{{movie.vote_average}}</li>
+
+
         </ul>
       </div>
     </div>

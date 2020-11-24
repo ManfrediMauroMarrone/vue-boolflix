@@ -19,7 +19,7 @@ var app = new Vue({
         })
         .then((response)=> {
           this.movies = response.data.results
-          console.log(response);
+          
         });
 
       }

@@ -32,8 +32,8 @@ button{
 
 .movie-list{
   list-style-type: none;
+  border: 1px solid black;
 }
 
 .movie-list li{
-  border: 1px solid black;
 }
