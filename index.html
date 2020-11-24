@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Boolflix</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" charset="utf-8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="root">
+      <div class="wrapper">
+        <h1>Esplora il catalogo film</h1>
+        <input class="searchbar" type="text" name="" value="" v-model="searched">
+        <button @click="search()" type="button" name="button">Search</button>
+        <ul class="movie-list" v-for="movie in movies">
+          <li>{{movie.original_title}}</li>
+        </ul>
+      </div>
+    </div>
+    <script src="main.js" charset="utf-8"></script>
+  </body>
+</html>
