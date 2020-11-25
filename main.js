@@ -5,8 +5,6 @@ var app = new Vue({
       vote:'',
       searched: '',
       results: '',
-      imgArray: ['icons/en.png', 'icons/it.png', 'icons/de.png'],
-      languages: ['en', 'it', 'de']
 
 
     },
