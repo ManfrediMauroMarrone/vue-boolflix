@@ -27,6 +27,7 @@ var app = new Vue({
             }
           })
           .then((response)=> {
+            console.log(response);
             this.movies = response.data.results
             this.movies.forEach((item, index) => {
               // converto la base del voto da 10 a 5 usando una proporzione
@@ -36,8 +37,11 @@ var app = new Vue({
 
             });
             this.searching = false
+            // creo una variabile per salvare il valore di this.searched
             let searchedItem = this.searched;
+            // assegno a searchResults il valore di searchedItem
             this.searchResults = searchedItem;
+            // resetto il valore di searched
             this.searched = "";
 
           })
@@ -67,10 +71,20 @@ var app = new Vue({
           .catch((error) =>{
             console.log(error);
           });
+
+
         }
 
-      }
+      },
 
+      // creo una funzione per costruire la stringa che recupera la bandiera giusta
+      getFlag(language) {
+            return 'icons/' + language + '.png';
+        },
+
+      getPoster(element) {
+        return 'https​//image.tmdb.org/t/p/' + 'w154' + element;
+      }
     },
 
     mounted() {
