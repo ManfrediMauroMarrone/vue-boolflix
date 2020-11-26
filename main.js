@@ -83,8 +83,15 @@ var app = new Vue({
         },
 
       getPoster(element) {
-        return 'https​//image.tmdb.org/t/p/' + 'w154' + element;
-      }
+          let poster = 'https://image.tmdb.org/t/p/w154' + element;
+          let noPoster = 'https://bluinterni.it/wp-content/plugins/lightbox/images/No-image-found.jpg'
+
+          if (element == null) {
+            return noPoster
+          } else {
+            return poster
+          }
+      },
     },
 
     mounted() {
