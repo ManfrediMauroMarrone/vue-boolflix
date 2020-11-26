@@ -3,6 +3,7 @@ var app = new Vue({
     data: {
       movies: [],
       tvSeries: [],
+      languages:['de', 'en', 'es', 'fr', 'it', 'ja', 'ko'],
       searched: '',
       results: '',
 
@@ -22,12 +23,12 @@ var app = new Vue({
           this.movies = response.data.results
           this.movies.forEach((item, index) => {
             // converto la base del voto da 10 a 5 usando una proporzione
-            let votoBase5 = Math.round(parseFloat(item.vote_average)*0.5)
+            let votoBase5 = Math.ceil(parseFloat(item.vote_average)*0.5)
             // pongo il vecchio voto in base 10 uguale al nuovo voto in pase 5 specificando l'indice perché è un array di oggetti
             this.movies[index].vote_average = votoBase5;
 
           });
-          // this.movies = [];
+
 
         })
         .catch((error) =>{

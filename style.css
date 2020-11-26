@@ -29,7 +29,8 @@ button{
   font-size: 20px;
 }
 
-.movie-card-container{
+.movie-card-container,
+.tv-series-container{
   width: 100%;
   height: 100%;
   margin: auto;
@@ -44,7 +45,8 @@ button{
   clear: both;
 } */
 
-.movie-card{
+.movie-card,
+.tv-card{
   height: 300px;
   width: 200px;
   list-style-type: none;
