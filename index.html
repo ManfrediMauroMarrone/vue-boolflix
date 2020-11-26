@@ -15,7 +15,8 @@
           <h1>Esplora il catalogo film</h1>
           <input @keyup.enter="search()" class="searchbar" type="text" name="" value="" v-model="searched" placeholder="Effettua una ricerca...">
           <button @click="search()" type="button" name="button">Search</button>
-          <h2>Risultati ricerca per: {{searched}}</h2>
+          <h2 v-if="searchResults">Risultati ricerca per: {{searchResults}}</h2>
+          <h2 v-if="searching">Ricerca in corso...</h2>
         </div>
         <div class="movie-card-container">
           <ul class="movie-card" v-for="movie in movies">
