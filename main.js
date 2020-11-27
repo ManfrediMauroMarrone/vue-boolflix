@@ -83,8 +83,8 @@ var app = new Vue({
         },
 
       getPoster(element) {
-          let poster = 'https://image.tmdb.org/t/p/w154' + element;
-          let noPoster = 'https://bluinterni.it/wp-content/plugins/lightbox/images/No-image-found.jpg'
+          let poster = 'https://image.tmdb.org/t/p/w342' + element;
+          let noPoster = 'https://www.seedstars.com/static/img/ic-no-results.svg'
 
           if (element == null) {
             return noPoster

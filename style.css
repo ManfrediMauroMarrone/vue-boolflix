@@ -4,12 +4,21 @@
   box-sizing: border-box;
 }
 
+body{
+  font-family: 'Roboto', sans-serif;
+  background-color: #1a1a1a;
+}
+
 .wrapper{
   min-height: 100vh;
   max-width: 1170px;
   margin: auto;
   padding: 20px;
   text-align: center;
+}
+
+.header{
+  background-color: black;
 }
 
 h1{
@@ -34,25 +43,84 @@ button{
   width: 100%;
   height: 100%;
   margin: auto;
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-between; */
 }
 
-/* .movie-card-container::after{
+.movie-card-container::after{
   content: '';
   display: table;
   clear: both;
-} */
+}
 
 .movie-card,
 .tv-card{
-  height: 300px;
-  width: 200px;
+  height: 500px;
+  width: 300px;
   list-style-type: none;
-  margin: 20px 0;
-  border: 1px solid black;
-  /* float: left; */
+  float: left;
+  perspective: 1000px; /*aggiunge effetto 3d*/
+  margin: 20px  38px;
+}
+
+
+.movie-card-inner,
+.tv-card-inner{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.movie-card:hover .movie-card-inner,
+.tv-card:hover .tv-card-inner{
+  transform: rotateY(180deg);
+}
+
+.movie-card-front, .movie-card-back,
+.tv-card-front, .tv-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+.movie-card-front,
+.tv-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.movie-card-back,
+.tv-card-back {
+  background-color: black;
+  color: white;
+  transform: rotateY(180deg);
+  border-radius: 10px;
+}
+
+.movie-card-back li,
+.tv-card-back li{
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.movie-card-poster,
+.tv-card-poster{
+  width: 100%;
+  height: 100%;
+}
+
+.movie-card-poster img,
+.tv-card-poster img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 #stars {

@@ -7,36 +7,54 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" charset="utf-8"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://kit.fontawesome.com/43febffcb7.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="root">
+      <div class="header">
+        <h1>Esplora il catalogo film</h1>
+        <input @keyup.enter="search()" class="searchbar" type="text" name="" value="" v-model="searched" placeholder="Effettua una ricerca...">
+        <button @click="search()" type="button" name="button">Search</button>
+        <h2 v-if="searchResults">Risultati ricerca per: {{searchResults}}</h2>
+        <h2 v-if="searching">Ricerca in corso...</h2>
+      </div>
       <div class="wrapper">
-        <div class="header">
-          <h1>Esplora il catalogo film</h1>
-          <input @keyup.enter="search()" class="searchbar" type="text" name="" value="" v-model="searched" placeholder="Effettua una ricerca...">
-          <button @click="search()" type="button" name="button">Search</button>
-          <h2 v-if="searchResults">Risultati ricerca per: {{searchResults}}</h2>
-          <h2 v-if="searching">Ricerca in corso...</h2>
-        </div>
+                                  <!-- movie card -->
         <div class="movie-card-container">
+          <!-- creo un ciclo all'interno dell'array movies -->
           <ul class="movie-card" v-for="movie in movies">
-            <img :src="getPoster(movie.poster_path)" alt="">
-            <li>{{movie.title}}</li>
-            <li>{{movie.original_title}}</li>
-            <!-- <li>{{movie.original_language}}</li> -->
-            <!-- verifico se nel mio array delle lingue è compresa la lingua del film -->
-            <!-- se presente stampo la bandiera -->
-            <li v-if="languages.includes(movie.original_language)">
-              <img :src="getFlag(movie.original_language)" :alt="movie.original_language">
-            </li>
-            <!-- se non è presente stampo il codice della lingua -->
-            <li v-else>
-              {{movie.original_language}}
-            </li>
-            <div id="stars">
-              <div v-for="star in 5">
-                <i class="fas fa-star" v-if="star <= movie.vote_average"></i>
-                <i class="far fa-star" v-else></i>
+            <div class="movie-card-inner">
+              <!-- creo un div che contenga la parte frontale della card -->
+              <div class="movie-card-front">
+                <div class="movie-card-poster">
+                  <img :src="getPoster(movie.poster_path)" alt="">
+
+                </div>
+
+              </div>
+              <!-- creo un div che contenga la parte posteriore della card -->
+              <div class="movie-card-back">
+                <li>{{movie.title}}</li>
+                <li>{{movie.original_title}}</li>
+                <!-- <li>{{movie.original_language}}</li> -->
+                <!-- verifico se nel mio array delle lingue è compresa la lingua del film -->
+                <!-- se presente stampo la bandiera -->
+                <li v-if="languages.includes(movie.original_language)">
+                  <img :src="getFlag(movie.original_language)" :alt="movie.original_language">
+                </li>
+                <!-- se non è presente stampo il codice della lingua -->
+                <li v-else>
+                  {{movie.original_language}}
+                </li>
+                <div id="stars">
+                  <div v-for="star in 5">
+                    <i class="fas fa-star" v-if="star <= movie.vote_average"></i>
+                    <i class="far fa-star" v-else></i>
+
+                  </div>
+
+                </div>
 
               </div>
 
@@ -45,27 +63,42 @@
 
         </div>
 
+                                <!-- tv card -->
         <div class="tv-series-container">
-          <ul class="tv-card" v-for="serie in tvSeries">
-            <img :src="getPoster(serie.poster_path)" alt="">
-            <li>{{serie.name}}</li>
-            <li>{{serie.original_name}}</li>
-            <li v-if="languages.includes(serie.original_language)">
-              <img :src="getFlag(serie.original_language)" :alt="serie.original_language">
-            </li>
-            <!-- se non è presente stampo il codice della lingua -->
-            <li v-else>
-              {{serie.original_language}}
-            </li>
-            <div id="stars">
-              <div v-for="star in 5">
-                <i class="fas fa-star" v-if="star <= serie.vote_average"></i>
-                <i class="far fa-star" v-else></i>
+            <ul class="tv-card" v-for="serie in tvSeries">
+              <div class="tv-card-inner">
+                <div class="tv-card-front">
+                  <div class="tv-card-poster">
+                    <img :src="getPoster(serie.poster_path)" alt="">
 
+                  </div>
+
+                </div>
+                <div class="tv-card-back">
+                  <li>{{serie.name}}</li>
+                  <li>{{serie.original_name}}</li>
+                  <!-- verifico se nel mio array delle lingue è compresa la lingua del film -->
+                  <!-- se presente stampo la bandiera -->
+                  <li v-if="languages.includes(serie.original_language)">
+                    <img :src="getFlag(serie.original_language)" :alt="serie.original_language">
+                  </li>
+                  <!-- se non è presente stampo il codice della lingua -->
+                  <li v-else>
+                    {{serie.original_language}}
+                  </li>
+                  <div id="stars">
+                    <div v-for="star in 5">
+                      <i class="fas fa-star" v-if="star <= serie.vote_average"></i>
+                      <i class="far fa-star" v-else></i>
+
+                    </div>
+
+                  </div>
+
+                </div>
               </div>
+            </ul>
 
-            </div>
-          </ul>
 
         </div>
       </div>
