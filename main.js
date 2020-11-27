@@ -35,6 +35,8 @@ var app = new Vue({
               // pongo il vecchio voto in base 10 uguale al nuovo voto in pase 5 specificando l'indice perché è un array di oggetti
               this.movies[index].vote_average = votoBase5;
 
+              console.log(response);
+
             });
             this.searching = false
             // creo una variabile per salvare il valore di this.searched

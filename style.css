@@ -11,31 +11,49 @@ body{
 
 .wrapper{
   min-height: 100vh;
-  max-width: 1170px;
+  max-width: 1920px;
   margin: auto;
   padding: 20px;
   text-align: center;
 }
 
 .header{
+  height: 100px;
   background-color: black;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-left{
+  line-height: 100px;
+}
+
+.header-right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 h1{
+  color: red;
   font-size: 40px;
   margin-bottom: 20px;
 }
 
 .searchbar{
-  width: 600px;
-  padding: 15px 10px;
-  font-size: 20px;
+  width: 400px;
+  padding: 10px 10px;
+  font-size: 18px;
+  margin-right: 10px;
+  border-radius: 6px;
 }
 
 button{
-  width: 100px;
-  padding: 15px 10px;
-  font-size: 20px;
+  width: 80px;
+  padding: 10px 10px;
+  font-size: 18px;
+  border-radius: 6px;
 }
 
 .movie-card-container,
@@ -101,6 +119,7 @@ button{
   color: white;
   transform: rotateY(180deg);
   border-radius: 10px;
+  overflow: auto;
 }
 
 .movie-card-back li,

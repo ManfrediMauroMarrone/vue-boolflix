@@ -13,11 +13,20 @@
   <body>
     <div id="root">
       <div class="header">
-        <h1>Esplora il catalogo film</h1>
-        <input @keyup.enter="search()" class="searchbar" type="text" name="" value="" v-model="searched" placeholder="Effettua una ricerca...">
-        <button @click="search()" type="button" name="button">Search</button>
-        <h2 v-if="searchResults">Risultati ricerca per: {{searchResults}}</h2>
-        <h2 v-if="searching">Ricerca in corso...</h2>
+        <div class="header-left">
+          <div class="">
+            <h1>Boolflix</h1>
+
+          </div>
+          <!-- <h2 v-if="searchResults">Risultati ricerca per: {{searchResults}}</h2>
+          <h2 v-if="searching">Ricerca in corso...</h2> -->
+        </div>
+        <div class="header-right">
+          <input @keyup.enter="search()" class="searchbar" type="text" name="" value="" v-model="searched" placeholder="Effettua una ricerca...">
+          <button @click="search()" type="button" name="button">Search</button>
+
+        </div>
+
       </div>
       <div class="wrapper">
                                   <!-- movie card -->
@@ -53,6 +62,10 @@
                     <i class="far fa-star" v-else></i>
 
                   </div>
+
+                </div>
+                <div id="ciao">
+                  <li>{{movie.overview}}</li>
 
                 </div>
 
