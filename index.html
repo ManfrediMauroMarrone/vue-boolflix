@@ -18,19 +18,22 @@
             <h1>Boolflix</h1>
 
           </div>
-          <!-- <h2 v-if="searchResults">Risultati ricerca per: {{searchResults}}</h2>
-          <h2 v-if="searching">Ricerca in corso...</h2> -->
+
         </div>
         <div class="header-right">
           <input @keyup.enter="search()" class="searchbar" type="text" name="" value="" v-model="searched" placeholder="Effettua una ricerca...">
           <button @click="search()" type="button" name="button">Search</button>
 
         </div>
-
+      </div>
+      <div class="search-field">
+        <h2 v-if="searchResults">Risultati ricerca per : {{searchResults}}</h2>
+        <h2 v-if="searching">Ricerca in corso...</h2>
       </div>
       <div class="wrapper">
                                   <!-- movie card -->
         <div class="movie-card-container">
+          <h2 class="research-title" v-if="searchResults">Film</h2>
           <!-- creo un ciclo all'interno dell'array movies -->
           <ul class="movie-card" v-for="movie in movies">
             <div class="movie-card-inner">
@@ -78,6 +81,7 @@
 
                                 <!-- tv card -->
         <div class="tv-series-container">
+          <h2 class="research-title" v-if="searchResults">Serie tv</h2>
             <ul class="tv-card" v-for="serie in tvSeries">
               <div class="tv-card-inner">
                 <div class="tv-card-front">

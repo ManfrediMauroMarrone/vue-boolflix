@@ -56,6 +56,18 @@ button{
   border-radius: 6px;
 }
 
+.search-field{
+  color: white;
+  padding: 50px 20px;
+  font-size: 30px;
+}
+
+.research-title{
+  margin: 20px 0;
+  font-size: 50px;
+  color: white;
+}
+
 .movie-card-container,
 .tv-series-container{
   width: 100%;
